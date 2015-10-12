@@ -1,0 +1,23 @@
+﻿@using CEngine45.Models.Community
+@model CEngine45.Models.Community.Topic
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+<div class="topic-body">
+    @Model.GetFirstPost().Body
+</div>
+
+<div class="topic-comments">
+    <ul>
+        @foreach (Post comment in Model.GetComments())
+        {
+            <li>
+                @comment.Body
+            </li>
+        }
+    </ul>
+</div>
